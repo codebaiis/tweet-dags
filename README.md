@@ -41,6 +41,8 @@ DAGs for composing and sharing small bits of info (tweets)
 <details>
     <summary>To Do</summary>
 
+    - add `get_google_sheet_credentials()` DAG that calls the existing function of the same name 
+        - add notes on how to run to get new credentials once existing credentials have expired
     - see if I can optimize `check_for_existing_source_section_title_pages()`
         - add a `source_section_title_spreadsheet_range` argument and remove as an environment variable
 
