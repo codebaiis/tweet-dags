@@ -14,7 +14,6 @@ def validate_env_variables() -> None:
     
     env_vars = {
         'GOOGLE_SHEET_SPREADSHEET_ID': os.getenv('GOOGLE_SHEET_SPREADSHEET_ID'),
-        'GOOGLE_SHEET_SPREADSHEET_RANGE_NAME': os.getenv('GOOGLE_SHEET_SPREADSHEET_RANGE_NAME'),
 
         # 'SLACK_WEBHOOK_URL': os.getenv('SLACK_WEBHOOK_URL'),
         # 'SLACK_USER_IDS': os.getenv('SLACK_USER_IDS')
