@@ -18,6 +18,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'python-dotenv',
         'google-api-python-client',
         'google-auth-httplib2',
         'google-auth-oauthlib',

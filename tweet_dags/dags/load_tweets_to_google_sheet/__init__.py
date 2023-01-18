@@ -15,6 +15,7 @@ from tweet_dags.dags.load_tweets_to_google_sheet.tasks import (
     get_google_sheets_credentials,
     check_for_existing_source_section_title_pages,
     get_tweets_from_scratch_dir,
+    load_tweet_list_to_google_sheet
 )
 from tweet_dags.dags.load_tweets_to_google_sheet.data_classes import (
     TweetSourceInfo,
@@ -33,5 +34,6 @@ def load_tweets_to_google_sheet(args: Namespace) -> None:
     tweet_source_info: TweetSourceInfo = get_tweet_source_info(tweet_scratch_dir_path)
     google_sheet_credentials: Credentials = get_google_sheets_credentials()
     check_for_existing_source_section_title_pages(tweet_source_info, google_sheet_credentials)
-    tweets_from_scatch_dir: List[Tweet] = get_tweets_from_scratch_dir(tweet_scratch_dir_path, tweet_source_info)
+    tweets: List[list] = get_tweets_from_scratch_dir(tweet_scratch_dir_path, tweet_source_info)
+    load_tweet_list_to_google_sheet(tweets, google_sheet_credentials)
     

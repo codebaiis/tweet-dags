@@ -16,6 +16,17 @@ DAGs for composing and sharing small bits of info (tweets)
     6. get_google_sheets_credentials
     7. check_for_existing_source_section_title_pages
     8. get_tweets_from_scratch_dir
+    9. load_tweet_list_to_google_sheet
+
+</details>
+
+
+<details>
+    <summary>get_google_sheet_creds</summary>
+
+    tasks:
+
+    1. get_google_sheets_credentials
 
 </details>
 
@@ -23,6 +34,19 @@ DAGs for composing and sharing small bits of info (tweets)
 *** 
 
 ## How To
+<details>
+    <summary>run locally</summary>
+    
+    1. create/activate a virtual environment
+    2. `pip install wheel`
+    3. `python setup.py bdist_wheel`
+    4. `pip3 install dist/*.whl`
+    5. update the command in `run.sh` with the correct dag name and arguments.
+    6. `source run.sh` 
+    ```
+
+</details>
+
 <details>
     <summary>run w/ Docker</summary>
     
@@ -36,13 +60,28 @@ DAGs for composing and sharing small bits of info (tweets)
 
 </details>
 
+<details>
+    <summary>update google sheet credentials</summary>
+    
+    There may be times when Google Sheets credentials token (`tweet_dags/config/google_sheets_token.json`) expires and will prevent the DAGs from running. If you receive this error, take these steps:
+
+    1. create and activate a virtual environment
+        - we haven't figured out how to update credentials from within a docker container, yet.
+    2. `pip install wheel`
+    3. `python setup.py bdist_wheel`
+    4. `pip install dist/*.whl`
+    5. `python3 main.py get_google_sheets_creds`
+
+</details>
+
 ***
 
 <details>
     <summary>To Do</summary>
 
-    - see if I can optimize `check_for_existing_source_section_title_pages()`
-        - add a `source_section_title_spreadsheet_range` argument and remove as an environment variable
+    - load_tweet_list_to_google_sheet(tweets: List[List])
+        - https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append
+        - https://www.youtube.com/watch?v=OZDGVTmQ45Q
 
 </details>
 

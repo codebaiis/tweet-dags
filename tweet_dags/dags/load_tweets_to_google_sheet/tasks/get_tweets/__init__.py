@@ -13,9 +13,11 @@ from tweet_dags.dags.load_tweets_to_google_sheet.tasks.get_tweets.data_classes i
 def get_tweets_from_scratch_dir(
         tweet_scratch_dir_path: str, 
         tweet_source_info: TweetSourceInfo,
-        tweet_scratch_filename: str = 'tweets_scratch.md'
-    ) -> List[Tweet]:
+        tweet_scratch_filename: str = 'tweets_scratch.md',
+        caption_identifier: str = '####'
+    ) -> List[list]:
     
+    tweets: List[list] = []
     filepath: str = os.path.join(tweet_scratch_dir_path, tweet_scratch_filename)
 
     with open(filepath, 'r') as file_handler:
@@ -25,5 +27,25 @@ def get_tweets_from_scratch_dir(
         contents: List[str] = thread.split('\n\n')
         contents = [content.strip() for content in contents if content]
         for thread_order_num, content in enumerate(contents, start=1):
-            print(thread_num, thread_order_num, '/', len(contents), content)
-            pass
+            thread_caption: bool = False 
+
+            if caption_identifier in content:
+                thread_caption = True
+                content = content.replace(caption_identifier, '') 
+
+            tweet: Tweet = Tweet(
+                    content,
+                    thread_num,
+                    thread_order_num,
+                    thread_caption,
+                    tweet_source_info.author,
+                    tweet_source_info.title,
+                    tweet_source_info.section_title,
+                    tweet_source_info.link,
+                    tweet_source_info.tags,
+                    tweet_source_info.pages
+                )
+            tweets.append(tweet.to_list())
+            
+            
+    return tweets
