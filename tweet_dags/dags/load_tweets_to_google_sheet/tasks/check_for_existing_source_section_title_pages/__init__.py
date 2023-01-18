@@ -1,14 +1,13 @@
 import os
 from typing import Dict, List
+from pprint import pprint
 
 from baiis_utils.decorators import log_performance_time
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build, Resource
-from googleapiclient.errors import HttpError
 
 from tweet_dags.config import SERVICE_NAME
 from tweet_dags.dags.load_tweets_to_google_sheet.tasks.get_tweet_source_info.data_classes import TweetSourceInfo
-from tweet_dags.dags.load_tweets_to_google_sheet.tasks.get_google_sheet_credentials import get_google_sheets_credentials
 
 
 
@@ -24,7 +23,7 @@ def check_for_existing_source_section_title_pages(
 
     section_title: str = tweet_source_info.section_title
     pages: str = tweet_source_info.pages
-    source_section_title_page: List[str,str] = [section_title, pages]
+    source_section_title_page: List[str,str] = [section_title, pages] if pages else [section_title]
 
     service: Resource = build('sheets', 'v4', credentials=google_sheet_credentials, cache_discovery=False)
     sheet: Resource = service.spreadsheets()

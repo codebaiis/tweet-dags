@@ -35,16 +35,15 @@ DAGs for composing and sharing small bits of info (tweets)
 
 ## How To
 <details>
-    <summary>update google sheet credentials</summary>
+    <summary>run locally</summary>
     
-    There may be times when Google Sheets credentials token (`tweet_dags/config/google_sheets_token.json`) expires and will prevent the DAGs from running. If you receive this error, take these steps:
-
-    1. create and activate a virtual environment
-        - we haven't figured out how to update credentials from within a docker container, yet.
+    1. create/activate a virtual environment
     2. `pip install wheel`
     3. `python setup.py bdist_wheel`
     4. `pip3 install dist/*.whl`
-    5. `python3 main.py get_google_sheets_creds`
+    5. update the command in `run.sh` with the correct dag name and arguments.
+    6. `source run.sh` 
+    ```
 
 </details>
 
@@ -58,6 +57,20 @@ DAGs for composing and sharing small bits of info (tweets)
         docker build --tag tweet_dags .
         docker run --env-file .env tweet_dags
     ```
+
+</details>
+
+<details>
+    <summary>update google sheet credentials</summary>
+    
+    There may be times when Google Sheets credentials token (`tweet_dags/config/google_sheets_token.json`) expires and will prevent the DAGs from running. If you receive this error, take these steps:
+
+    1. create and activate a virtual environment
+        - we haven't figured out how to update credentials from within a docker container, yet.
+    2. `pip install wheel`
+    3. `python setup.py bdist_wheel`
+    4. `pip install dist/*.whl`
+    5. `python3 main.py get_google_sheets_creds`
 
 </details>
 

@@ -15,9 +15,9 @@ def get_tweets_from_scratch_dir(
         tweet_source_info: TweetSourceInfo,
         tweet_scratch_filename: str = 'tweets_scratch.md',
         caption_identifier: str = '####'
-    ) -> List[Tweet]:
+    ) -> List[list]:
     
-    tweets: List[Tweet] = []
+    tweets: List[list] = []
     filepath: str = os.path.join(tweet_scratch_dir_path, tweet_scratch_filename)
 
     with open(filepath, 'r') as file_handler:
@@ -27,7 +27,6 @@ def get_tweets_from_scratch_dir(
         contents: List[str] = thread.split('\n\n')
         contents = [content.strip() for content in contents if content]
         for thread_order_num, content in enumerate(contents, start=1):
-            # print(thread_num, thread_order_num, '/', len(contents), content)
             thread_caption: bool = False 
 
             if caption_identifier in content:
@@ -46,7 +45,7 @@ def get_tweets_from_scratch_dir(
                     tweet_source_info.tags,
                     tweet_source_info.pages
                 )
-            tweets.append(tweet)
+            tweets.append(tweet.to_list())
             
             
     return tweets

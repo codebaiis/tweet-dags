@@ -5,6 +5,7 @@ from datetime import date, datetime
 from typing import Callable, List
 
 from baiis_utils.decorators import log_performance_time
+from dotenv import load_dotenv
 
 from tweet_dags import dags
 from tweet_dags.config import SERVICE_NAME
@@ -28,6 +29,7 @@ def run(args: Namespace) -> None:
 
 
 if __name__ == "__main__":
+    load_dotenv()
     project_description: str = 'Tweet DAG Suite.'
     parser: ArgumentParser = ArgumentParser(description=project_description)
 
