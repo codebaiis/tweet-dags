@@ -10,7 +10,7 @@ from tweet_dags.dags.load_tweets_to_google_sheet.tasks import (
     validate_env_variables,
     validate_params,
     get_tweet_scratch_dir_path,
-    validate_tweet_scrath_files,
+    validate_tweet_scratch_files,
     get_tweet_source_info,
     get_google_sheets_credentials,
     check_for_existing_source_section_title_pages,
@@ -30,7 +30,7 @@ def load_tweets_to_google_sheet(args: Namespace) -> None:
     validate_env_variables()
     validate_params(args)
     tweet_scratch_dir_path: str = get_tweet_scratch_dir_path(args.tweet_scratch_dir_path)
-    validate_tweet_scrath_files(tweet_scratch_dir_path)
+    validate_tweet_scratch_files(tweet_scratch_dir_path)
     tweet_source_info: TweetSourceInfo = get_tweet_source_info(tweet_scratch_dir_path)
     google_sheet_credentials: Credentials = get_google_sheets_credentials()
     check_for_existing_source_section_title_pages(tweet_source_info, google_sheet_credentials)

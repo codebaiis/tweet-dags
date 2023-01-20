@@ -8,12 +8,11 @@ from tweet_dags.config import SERVICE_NAME
 
 
 
-#TODO: change to 5 minutes
 FILE_EXPIRATION_MINUTES: int = 60
 
 
 @log_performance_time(service_name=SERVICE_NAME)
-def validate_tweet_scrath_files(
+def validate_tweet_scratch_files(
         tweet_scratch_dir_path: str,
         tweet_scratch_filename: str = 'tweets_scratch.md',
         tweet_source_info_filename: str = 'tweets_source_info.json'
