@@ -1,2 +1,3 @@
 from tweet_dags.dags.get_google_sheets_creds import get_google_sheets_creds
 from tweet_dags.dags.load_tweets_to_google_sheet import load_tweets_to_google_sheet
+from tweet_dags.dags.load_tweets_to_s3 import load_tweets_to_s3

@@ -39,6 +39,7 @@ if __name__ == "__main__":
         choices=[ 
             'get_google_sheets_creds',
             'load_tweets_to_google_sheet',
+            'load_tweets_to_s3',
         ],
         help="The DAG that will run."
     )

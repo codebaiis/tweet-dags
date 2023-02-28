@@ -11,7 +11,7 @@ DAGs for composing and sharing small bits of info (tweets)
     1. validate_env_variables
     2. validate_params
     3. get_tweet_scratch_dir_path
-    4. validate_tweet_scrath_files
+    4. validate_tweet_scratch_files
     5. get_tweet_source_info
     6. get_google_sheets_credentials
     7. check_for_existing_source_section_title_pages
@@ -27,6 +27,24 @@ DAGs for composing and sharing small bits of info (tweets)
     tasks:
 
     1. get_google_sheets_credentials
+
+</details>
+
+<details>
+    <summary>load_tweets_to_s3</summary>
+
+    tasks:
+
+    1. validate_env_variables
+    2. validate_params
+    3. get_tweet_scratch_dir_path
+    4. validate_tweet_scratch_files
+    5. get_tweet_source_info
+    6. download_tweets_csv_from_s3
+    7. check_for_existing_source_section_title_pages
+    8. get_tweets_from_scratch_dir
+    9. add_tweets_to_csv
+    10. upload_tweets_csv_to_s3
 
 </details>
 

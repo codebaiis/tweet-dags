@@ -1,0 +1,3 @@
+ENV_VAR_NAMES = [
+    'EXAMPLE'
+]
