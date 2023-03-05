@@ -8,7 +8,7 @@ from tweet_dags.config import SERVICE_NAME
 
 
 
-FILE_EXPIRATION_MINUTES: int = 60
+FILE_EXPIRATION_MINUTES: int = 600
 
 
 @log_performance_time(service_name=SERVICE_NAME)

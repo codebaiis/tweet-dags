@@ -19,6 +19,9 @@ setup(
     zip_safe=False,
     install_requires=[
         'python-dotenv',
+        'boto3',
+        'pandas',
+        
         'google-api-python-client',
         'google-auth-httplib2',
         'google-auth-oauthlib',

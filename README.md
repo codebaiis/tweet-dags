@@ -55,7 +55,7 @@ DAGs for composing and sharing small bits of info (tweets)
 <details>
     <summary>run locally</summary>
     
-    1. create/activate a virtual environment
+    1. create and activate a virtual environment
     2. `pip install wheel`
     3. `python setup.py bdist_wheel`
     4. `pip3 install dist/*.whl`
@@ -97,9 +97,6 @@ DAGs for composing and sharing small bits of info (tweets)
 <details>
     <summary>To Do</summary>
 
-    - load_tweet_list_to_google_sheet(tweets: List[List])
-        - https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append
-        - https://www.youtube.com/watch?v=OZDGVTmQ45Q
 
 </details>
 
